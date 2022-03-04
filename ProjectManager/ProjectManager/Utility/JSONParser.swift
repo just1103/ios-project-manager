@@ -21,7 +21,7 @@ enum JSONParserError: Error, LocalizedError {
 }
 
 struct JSONParser<Item: Decodable> {
-    func decode(bundleFileName: String, fileExtension: String) throws -> [Item] {
+    static func decode(bundleFileName: String, fileExtension: String) throws -> [Item] {
         guard let url = Bundle.main.url(forResource: bundleFileName, withExtension: fileExtension) else { // ex. forResource: "sample", withExtension: "json"
             throw JSONParserError.fileNotFound
         }

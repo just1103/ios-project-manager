@@ -13,18 +13,17 @@ class TaskManager {
     private(set) var doingTasks: [Task] = []
     private(set) var doneTasks: [Task] = []
     
-    func createTask(title: String, body: String, dueDate: TimeInterval) { // 매개변수로 Task를 받는게 좋을까?
-        let newTask = Task(title: title, body: body, dueDate: dueDate)
-        todoTasks.append(newTask)
+    func create(task: Task) {
+        todoTasks.append(task)
     }
     
-    func updateTask(of task: Task, title: String, body: String, dueDate: TimeInterval) {
+    func updateTask(of task: Task, title: String, body: String, dueDate: Date) {
         task.title = title
         task.body = body
         task.dueDate = dueDate
     }
     
-    func deleteTask(_ task: Task) {
+    func delete(task: Task) {
         let id = task.id
         todoTasks.removeAll { $0.id == id }
         doingTasks.removeAll { $0.id == id }
