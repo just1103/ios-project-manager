@@ -21,6 +21,9 @@
 		3692438E27D077AB004F0FE4 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692438D27D077AB004F0FE4 /* JSONParser.swift */; };
 		3692439027D07EAB004F0FE4 /* ProcessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692438F27D07EAB004F0FE4 /* ProcessStatus.swift */; };
 		3692439227D07F12004F0FE4 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692439127D07F12004F0FE4 /* Task.swift */; };
+		3692439427D09AA4004F0FE4 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692439327D09AA4004F0FE4 /* TaskManager.swift */; };
+		3692439627D0A11B004F0FE4 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 3692439527D0A11B004F0FE4 /* sample.json */; };
+		369243B927D1CD43004F0FE4 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369243B827D1CD43004F0FE4 /* StorageProtocol.swift */; };
 		C7431F0625F51E1D0094C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7431F0525F51E1D0094C4CF /* AppDelegate.swift */; };
 		C7431F0825F51E1D0094C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7431F0725F51E1D0094C4CF /* SceneDelegate.swift */; };
 		C7431F0A25F51E1D0094C4CF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7431F0925F51E1D0094C4CF /* MainViewController.swift */; };
@@ -48,6 +51,9 @@
 		3692438D27D077AB004F0FE4 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		3692438F27D07EAB004F0FE4 /* ProcessStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatus.swift; sourceTree = "<group>"; };
 		3692439127D07F12004F0FE4 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		3692439327D09AA4004F0FE4 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		3692439527D0A11B004F0FE4 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
+		369243B827D1CD43004F0FE4 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		C7431F0225F51E1D0094C4CF /* ProjectManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7431F0525F51E1D0094C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7431F0725F51E1D0094C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +101,7 @@
 		3692435B27D071C4004F0FE4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C7431F0925F51E1D0094C4CF /* MainViewController.swift */,
+				3692439327D09AA4004F0FE4 /* TaskManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -103,6 +109,7 @@
 		3692435C27D071CE004F0FE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7431F0925F51E1D0094C4CF /* MainViewController.swift */,
 				C7431F0B25F51E1D0094C4CF /* Main.storyboard */,
 				C7431F1025F51E1E0094C4CF /* LaunchScreen.storyboard */,
 			);
@@ -115,6 +122,7 @@
 				C7431F0E25F51E1E0094C4CF /* Assets.xcassets */,
 				3692433927CE095C004F0FE4 /* GoogleService-Info.plist */,
 				3692438A27D0751B004F0FE4 /* Info.plist */,
+				3692439527D0A11B004F0FE4 /* sample.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -125,6 +133,14 @@
 				3692438D27D077AB004F0FE4 /* JSONParser.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		369243B727D1CCE0004F0FE4 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				369243B827D1CD43004F0FE4 /* StorageProtocol.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		C7431EF925F51E1D0094C4CF = {
@@ -149,6 +165,7 @@
 		C7431F0425F51E1D0094C4CF /* ProjectManager */ = {
 			isa = PBXGroup;
 			children = (
+				369243B727D1CCE0004F0FE4 /* DB */,
 				3692438C27D0778D004F0FE4 /* Utility */,
 				3692435A27D071BC004F0FE4 /* Model */,
 				3692435C27D071CE004F0FE4 /* View */,
@@ -268,6 +285,7 @@
 				3692433A27CE095C004F0FE4 /* GoogleService-Info.plist in Resources */,
 				C7431F0F25F51E1E0094C4CF /* Assets.xcassets in Resources */,
 				C7431F0D25F51E1D0094C4CF /* Main.storyboard in Resources */,
+				3692439627D0A11B004F0FE4 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +324,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7431F0A25F51E1D0094C4CF /* MainViewController.swift in Sources */,
+				3692439427D09AA4004F0FE4 /* TaskManager.swift in Sources */,
 				3692439027D07EAB004F0FE4 /* ProcessStatus.swift in Sources */,
 				C7431F0625F51E1D0094C4CF /* AppDelegate.swift in Sources */,
 				3692438E27D077AB004F0FE4 /* JSONParser.swift in Sources */,
 				3692439227D07F12004F0FE4 /* Task.swift in Sources */,
 				C7431F0825F51E1D0094C4CF /* SceneDelegate.swift in Sources */,
+				369243B927D1CD43004F0FE4 /* StorageProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

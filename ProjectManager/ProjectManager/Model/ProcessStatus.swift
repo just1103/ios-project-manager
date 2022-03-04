@@ -1,18 +1,11 @@
 import Foundation
 
-enum ProcessStatus {
-    case toDo
-    case doing
-    case done
+enum ProcessStatus: String, Codable, CustomStringConvertible {
+    case todo = "TODO"
+    case doing = "DOING"
+    case done = "DONE"
     
     var description: String {
-        switch self {
-        case .toDo:
-            return "TODO"
-        case .doing:
-            return "DOING"
-        case .done:
-            return "DONE"
-        }
+        return rawValue
     }
 }
