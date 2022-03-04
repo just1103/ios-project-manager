@@ -10,26 +10,35 @@ class TaskListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableViews()
     }
     
     func setupTableViews() {
         todoTableView.dataSource = self
-        todoTableView.delegate = self
+//        todoTableView.delegate = self
+        let nib = UINib(nibName: TaskTableViewCell.reuseIdentifier, bundle: nil)
+        todoTableView.register(nib, forCellReuseIdentifier: TaskTableViewCell.reuseIdentifier)
     }
 }
 
 extension TaskListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withClass: TaskTableViewCell.self, for: indexPath)
+        
+        cell.titleLabel.text = "123"
+        cell.bodyLabel.text = "123"
+        cell.dateLabel.text = "123123"
+        
+        return cell
     }
 }
 
-extension TaskListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-}
+//extension TaskListViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+//}

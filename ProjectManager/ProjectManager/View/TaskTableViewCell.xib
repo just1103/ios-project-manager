@@ -42,6 +42,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.71764707569999997" green="0.87450981139999995" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="kha-Iz-7Ng" secondAttribute="trailing" constant="5" id="EeG-Ch-J1K"/>
                     <constraint firstItem="kha-Iz-7Ng" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PiD-wX-f38"/>
@@ -51,8 +52,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bodyLabel" destination="Mwu-s2-7Su" id="RAn-Ww-dux"/>
                 <outlet property="dateLabel" destination="2X1-LV-q8U" id="i8q-nG-pIw"/>
-                <outlet property="descriptionLabel" destination="Mwu-s2-7Su" id="uKI-Kb-y3S"/>
                 <outlet property="titleLabel" destination="7Y4-3e-SfZ" id="EyH-E2-IGb"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="136.94196428571428"/>

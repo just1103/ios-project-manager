@@ -5,20 +5,20 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var task: Task = Task(title: "", body: "", dueDate: 0)
-    
-    var title: String {
-        return task.title
-    }
-    
-    var body: String {
-        return task.body
-    }
-
-    var date: String {
-        let timeInterval = task.dueDate
-        return timeInterval.toDateString()
-    }
+//    var task: Task
+//
+//    var title: String {
+//        return task.title
+//    }
+//
+//    var body: String {
+//        return task.body
+//    }
+//
+//    var date: String {
+//        let timeInterval = task.dueDate
+//        return timeInterval.toDateString()
+//    }
     
 //    init() {
 //        applyData(<#T##task: Task##Task#>)
@@ -29,7 +29,7 @@ class TaskTableViewCell: UITableViewCell {
 //    }
     
     func applyData(_ task: Task) {
-        self.task = task
+//        self.task = task
     }
     
     override func awakeFromNib() {
