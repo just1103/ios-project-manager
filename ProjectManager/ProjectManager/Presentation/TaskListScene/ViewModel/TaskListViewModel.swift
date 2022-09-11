@@ -1,35 +1,7 @@
 import UIKit
 import RxSwift
 
-protocol TaskListViewModelInputProtocol {
-//    func create(task: Task) // DetailView로 분리 (TODO: UseCase별 Protocol로 구분)
-    func delete(task: Task)
-    func update(task: Task, to newTask: Task)
-    func edit(task: Task, newProcessStatus: ProcessStatus)
-//    func edit(task: Task, newTitle: String, newBody: String, newDueDate: Date) // DetailView로 분리
-
-    func processStatusChangeOptions(of currentProcessStatus: ProcessStatus) -> [ProcessStatus]
-    func popoverTitle(of changeOptions: [ProcessStatus]) -> [String]
-    func didTouchUpAddButton()
-    func presentPopover(with alert: UIAlertController)
-}
-
-protocol TaskListViewModelOutputProtocol {
-    var taskRepository: TaskRepositoryProtocol { get }
-    var todoTasks: Observable<[Task]> { get }
-    var doingTasks: Observable<[Task]> { get }
-    var doneTasks: Observable<[Task]> { get }
-    var todoTasksCount: Observable<Int> { get }
-    var doingTasksCount: Observable<Int> { get }
-    var doneTasksCount: Observable<Int> { get }
-    var actions: TaskListViewModelActions? { get }
-    
-//    func changeDateLabelColorIfExpired(with: Date) -> UIColor // TaskViewModel로 분리
-}
-
-protocol TaskListViewModelProtocol: TaskListViewModelInputProtocol, TaskListViewModelOutputProtocol { }
-
-final class TaskListViewModel: TaskListViewModelProtocol {
+final class TaskListViewModel {
     // MARK: - Properties
     let taskRepository: TaskRepositoryProtocol
     
@@ -69,7 +41,7 @@ final class TaskListViewModel: TaskListViewModelProtocol {
     }
 
     func popoverTitle(of changeOptions: [ProcessStatus]) -> [String] {
-        return changeOptions.map { "Move To \($0.description)"  }
+        return changeOptions.map { "Move To \($0.description)" }
     }
 
     func presentPopover(with alert: UIAlertController) {

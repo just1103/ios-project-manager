@@ -1,20 +1,22 @@
 import UIKit
 
 final class TaskTableViewCell: UITableViewCell {
-    private var task: Task?
-    private var taskViewModel: TaskViewModelProtocol?
-    private var taskListViewModel: TaskListViewModelProtocol?
-    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var bodyLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
+    private var task: Task?
+    private var taskViewModel: TaskViewModel?
+    private var taskListViewModel: TaskListViewModel?
+    
     override func prepareForReuse() {
         dateLabel.textColor = .label
         task = nil
+        taskViewModel = nil
+        taskListViewModel = nil
     }
     
-    func update(with task: Task, taskViewModel: TaskViewModelProtocol?, taskListViewModel: TaskListViewModelProtocol?) {
+    func update(with task: Task, taskViewModel: TaskViewModel?, taskListViewModel: TaskListViewModel?) {
         self.task = task
         self.taskViewModel = taskViewModel
         self.taskListViewModel = taskListViewModel

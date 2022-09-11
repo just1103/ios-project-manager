@@ -9,8 +9,8 @@ private enum Design {
 
 final class TaskListViewController: UIViewController {
     // MARK: - Properties
-    private var taskViewModel: TaskViewModelProtocol?
-    private var taskListViewModel: TaskListViewModelProtocol?
+    private var taskViewModel: TaskViewModel?
+    private var taskListViewModel: TaskListViewModel?
     private var disposeBag = DisposeBag()
     
     private var todoTaskHeaderView: TaskTableHeaderView!
@@ -22,7 +22,7 @@ final class TaskListViewController: UIViewController {
     @IBOutlet private weak var doneTableView: TaskTableView!
     
     // MARK: - Initializers
-    convenience init?(coder: NSCoder, taskViewModel: TaskViewModelProtocol, taskListViewModel: TaskListViewModelProtocol) {
+    convenience init?(coder: NSCoder, taskViewModel: TaskViewModel, taskListViewModel: TaskListViewModel) {
         self.init(coder: coder)
         self.taskViewModel = taskViewModel
         self.taskListViewModel = taskListViewModel
@@ -88,6 +88,7 @@ final class TaskListViewController: UIViewController {
              .disposed(by: disposeBag)
     }
     
+    // ???: 이런건 input output modeling에서 어떻게 처리해야하지?
     private func setupTableViewsDidSelectCellBinding() {
         todoTableView.rx.modelSelected(Task.self)
             .bind(onNext: { [weak self] in
@@ -126,7 +127,7 @@ final class TaskListViewController: UIViewController {
         taskListViewModel?.todoTasksCount
             .map { "\($0)" }
             .asDriver(onErrorJustReturn: "")
-            .drive(todoTaskHeaderView.taskCountLabel.rx.text)
+            .drive(todoTaskHeaderView.taskCountLabel.rx.text)  // ???: VC에서 HeaderView에 접근해도 괜찮을까?
             .disposed(by: disposeBag)
         
         taskListViewModel?.doingTasksCount

@@ -7,9 +7,9 @@ struct StoryboardInformation {
 }
 
 enum TypeOfViewController {
-    case taskList(taskViewModel: TaskViewModelProtocol, taskListViewModel: TaskListViewModelProtocol)
-    case addTaskDetail(taskDetailViewModel: TaskDetailViewModelProtocol)
-    case editTaskDetail(taskDetailViewModel: TaskDetailViewModelProtocol, taskToEdit: Task)
+    case taskList(taskViewModel: TaskViewModel, taskListViewModel: TaskListViewModel)
+    case addTaskDetail(taskDetailViewModel: TaskDetailViewModel)
+    case editTaskDetail(taskDetailViewModel: TaskDetailViewModel, taskToEdit: Task)
 }
 
 extension TypeOfViewController {
@@ -24,7 +24,7 @@ extension TypeOfViewController {
 }
 
 enum ViewControllerFactory {
-    static func createViewController(of typeOfViewController: TypeOfViewController) -> UIViewController {
+    static func create(of typeOfViewController: TypeOfViewController) -> UIViewController {
         let storyboardInformation = typeOfViewController.fetchStoryboardInformation()
         let storyboard = UIStoryboard(name: storyboardInformation.storyboardName, bundle: storyboardInformation.bundle)
         

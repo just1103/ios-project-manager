@@ -1,25 +1,7 @@
 import UIKit
 import RxSwift
 
-protocol TaskDetailViewModelInputProtocol {
-    func create(task: Task)
-    func update(task: Task, to newTask: Task)
-    func edit(task: Task, newTitle: String, newBody: String, newDueDate: Date)
-    
-    func leftBarButton(of taskManagerAction: TaskManagerAction) -> UIBarButtonItem.SystemItem
-    func rightBarButton(of taskManagerAction: TaskManagerAction) -> UIBarButtonItem.SystemItem
-}
-
-protocol TaskDetailViewModelOutputProtocol {
-    var taskRepository: TaskRepositoryProtocol { get }
-    var todoTasks: Observable<[Task]> { get }
-    var doingTasks: Observable<[Task]> { get }
-    var doneTasks: Observable<[Task]> { get }
-}
-
-protocol TaskDetailViewModelProtocol: TaskDetailViewModelInputProtocol, TaskDetailViewModelOutputProtocol { }
-
-final class TaskDetailViewModel: TaskDetailViewModelProtocol {
+final class TaskDetailViewModel {
     // MARK: - Properties
     let taskRepository: TaskRepositoryProtocol
     

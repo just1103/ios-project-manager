@@ -1,7 +1,7 @@
 import UIKit
 
-class TaskDetailController: UIViewController {
-    private var taskDetailViewModel: TaskDetailViewModelProtocol?
+final class TaskDetailController: UIViewController {
+    private var taskDetailViewModel: TaskDetailViewModel?
     private var taskManagerAction: TaskManagerAction!
     private var taskToEdit: Task?
     
@@ -9,7 +9,12 @@ class TaskDetailController: UIViewController {
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var bodyTextView: UITextView!
     
-    convenience init?(coder: NSCoder, taskDetailViewModel: TaskDetailViewModelProtocol?, taskManagerAction: TaskManagerAction, taskToEdit: Task?) {
+    convenience init?(
+        coder: NSCoder,
+        taskDetailViewModel: TaskDetailViewModel,
+        taskManagerAction: TaskManagerAction,
+        taskToEdit: Task?
+    ) {
         self.init(coder: coder)
         self.taskDetailViewModel = taskDetailViewModel
         self.taskManagerAction = taskManagerAction
@@ -22,7 +27,10 @@ class TaskDetailController: UIViewController {
     }
     
     private func applyTaskToEditIfExists() {
-        guard taskManagerAction == .edit, let taskToEdit = taskToEdit else { return }
+        guard
+            taskManagerAction == .edit,
+            let taskToEdit = taskToEdit
+        else { return }
         
         titleLabel.text = taskToEdit.title
         datePicker.date = taskToEdit.dueDate
@@ -36,10 +44,7 @@ class TaskDetailController: UIViewController {
     }
     
     private func setupLeftBarButton() {
-        guard let leftBarCancelButton = taskDetailViewModel?.leftBarButton(of: taskManagerAction) else {
-            return
-        }
-        
+        guard let leftBarCancelButton = taskDetailViewModel?.leftBarButton(of: taskManagerAction) else { return }
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: leftBarCancelButton,
                                                            target: self,
                                                            action: #selector(touchUpLeftBarCancelButton))
@@ -57,9 +62,7 @@ class TaskDetailController: UIViewController {
     }
     
     private func setupRightBarButton() {
-        guard let rightBarButton = taskDetailViewModel?.rightBarButton(of: taskManagerAction) else {
-            return
-        }
+        guard let rightBarButton = taskDetailViewModel?.rightBarButton(of: taskManagerAction) else { return }
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: rightBarButton,
                                                            target: self,
                                                            action: #selector(touchUpRightBarButton))

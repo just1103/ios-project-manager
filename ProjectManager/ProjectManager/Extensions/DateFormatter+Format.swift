@@ -6,7 +6,6 @@ extension DateFormatter {
         dateFormatter.dateStyle = .short
         dateFormatter.timeZone = .autoupdatingCurrent
         dateFormatter.locale = .autoupdatingCurrent
-        
         return dateFormatter
     }()
     

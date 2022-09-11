@@ -10,13 +10,12 @@ protocol FlowCoordinatorProtocol {
 }
 
 final class FlowCoordinator: FlowCoordinatorProtocol {
-    // TODO: rootViewController: UIViewController로 변경
     weak var navigationController: UINavigationController?
 
-    private var taskRepository: TaskRepositoryProtocol!
-    private var taskViewModel: TaskViewModelProtocol!
-    private var taskListViewModel: TaskListViewModelProtocol!
-    private var taskDetailViewModel: TaskDetailViewModelProtocol!
+    private var taskRepository: TaskRepository!
+    private var taskViewModel: TaskViewModel!
+    private var taskListViewModel: TaskListViewModel!
+    private var taskDetailViewModel: TaskDetailViewModel!
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -34,7 +33,9 @@ final class FlowCoordinator: FlowCoordinatorProtocol {
         taskListViewModel = TaskListViewModel(taskRepository: taskRepository, actions: actions)
         taskDetailViewModel = TaskDetailViewModel(taskRepository: taskRepository)
         
-        guard let taskListViewController = ViewControllerFactory.createViewController(of: .taskList(taskViewModel: taskViewModel, taskListViewModel: taskListViewModel)) as? TaskListViewController else {
+        guard let taskListViewController = ViewControllerFactory.create(of: .taskList(taskViewModel: taskViewModel, taskListViewModel: taskListViewModel))
+                as? TaskListViewController
+        else {
             print(ViewControllerError.invalidViewController.description)
             return
         }
@@ -43,12 +44,12 @@ final class FlowCoordinator: FlowCoordinatorProtocol {
     
     // MARK: - TaskListView -> TaskDetailView 화면 이동
     func showTaskDetailToAddTask() {
-        guard let taskDetailController = ViewControllerFactory.createViewController(of: .addTaskDetail(taskDetailViewModel: taskDetailViewModel)) as? TaskDetailController else { return }
+        guard let taskDetailController = ViewControllerFactory.create(of: .addTaskDetail(taskDetailViewModel: taskDetailViewModel)) as? TaskDetailController else { return }
         navigationController?.present(UINavigationController(rootViewController: taskDetailController), animated: true, completion: nil)
     }
     
     func showTaskDetailToEditTask(_ task: Task) {
-        guard let taskDetailController = ViewControllerFactory.createViewController(of: .editTaskDetail(taskDetailViewModel: taskDetailViewModel, taskToEdit: task)) as? TaskDetailController else {
+        guard let taskDetailController = ViewControllerFactory.create(of: .editTaskDetail(taskDetailViewModel: taskDetailViewModel, taskToEdit: task)) as? TaskDetailController else {
             print(ViewControllerError.invalidViewController.description)
             return
         }
