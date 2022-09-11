@@ -15,11 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let navigationController = UINavigationController()
+        navigationController.view.backgroundColor = .white
         window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
         flowCoordinator = FlowCoordinator(navigationController: navigationController)
         flowCoordinator?.start()
-        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

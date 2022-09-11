@@ -23,6 +23,7 @@ final class FlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start() {
+        // Coordinator의 일부만 담겨서 ViewModel에 전달됨 (Coordinator 전체를 ViewModel에 넘기는 것보다 결합도는 낮아짐)
         let actions = TaskListViewModelActions(showTaskDetailToAddTask: showTaskDetailToAddTask,
                                                showTaskDetailToEditTask: showTaskDetailToEditTask,
                                                presentPopover: presentPopover)
@@ -42,10 +43,7 @@ final class FlowCoordinator: FlowCoordinatorProtocol {
     
     // MARK: - TaskListView -> TaskDetailView 화면 이동
     func showTaskDetailToAddTask() {
-        guard let taskDetailController = ViewControllerFactory.createViewController(of: .addTaskDetail(taskDetailViewModel: taskDetailViewModel)) as? TaskDetailController else {
-            print(ViewControllerError.invalidViewController.description)
-            return
-        }
+        guard let taskDetailController = ViewControllerFactory.createViewController(of: .addTaskDetail(taskDetailViewModel: taskDetailViewModel)) as? TaskDetailController else { return }
         navigationController?.present(UINavigationController(rootViewController: taskDetailController), animated: true, completion: nil)
     }
     

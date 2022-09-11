@@ -182,22 +182,12 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		36BB380E27E891E2004A701D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		36BB380F27E891E9004A701D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				36BB381127E892C5004A701D /* FlowCoordinator.swift */,
-				36C6FC3227D7274000B3057F /* TaskListView */,
-				36C6FC4027D74F7F00B3057F /* TaskDetailView */,
-				36C6FC3327D72B2300B3057F /* Utilities */,
-				36C6FC3B27D73E3300B3057F /* Extensions */,
-				36C6FC3627D72E3600B3057F /* Errors */,
+				36C6FC3227D7274000B3057F /* TaskListScene */,
+				36C6FC4027D74F7F00B3057F /* TaskDetailScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -216,10 +206,10 @@
 			children = (
 				C7431F0925F51E1D0094C4CF /* TaskListViewController.swift */,
 				C7431F0B25F51E1D0094C4CF /* TaskListViewController.storyboard */,
-				369243FC27D26A1E004F0FE4 /* TaskTableViewCell.swift */,
-				369243FD27D26A1E004F0FE4 /* TaskTableViewCell.xib */,
 				36C6FC6927D9FD1500B3057F /* TaskTableView.swift */,
 				36D50A3E27E0F90A00CD61EF /* TaskTableHeaderView.swift */,
+				369243FC27D26A1E004F0FE4 /* TaskTableViewCell.swift */,
+				369243FD27D26A1E004F0FE4 /* TaskTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,13 +223,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		36C6FC3227D7274000B3057F /* TaskListView */ = {
+		36C6FC3227D7274000B3057F /* TaskListScene */ = {
 			isa = PBXGroup;
 			children = (
 				369243F627D26781004F0FE4 /* ViewModel */,
 				36BB381427E893DB004A701D /* View */,
 			);
-			path = TaskListView;
+			path = TaskListScene;
 			sourceTree = "<group>";
 		};
 		36C6FC3327D72B2300B3057F /* Utilities */ = {
@@ -273,13 +263,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		36C6FC4027D74F7F00B3057F /* TaskDetailView */ = {
+		36C6FC4027D74F7F00B3057F /* TaskDetailScene */ = {
 			isa = PBXGroup;
 			children = (
 				36BB381327E893BC004A701D /* ViewModel */,
 				36BB381527E893E0004A701D /* View */,
 			);
-			path = TaskDetailView;
+			path = TaskDetailScene;
 			sourceTree = "<group>";
 		};
 		36C6FC4B27D7869A00B3057F /* Repository */ = {
@@ -324,8 +314,10 @@
 				C7431F0525F51E1D0094C4CF /* AppDelegate.swift */,
 				C7431F0725F51E1D0094C4CF /* SceneDelegate.swift */,
 				36BB380D27E891B2004A701D /* Data */,
-				36BB380E27E891E2004A701D /* Domain */,
 				36BB380F27E891E9004A701D /* Presentation */,
+				36C6FC3627D72E3600B3057F /* Errors */,
+				36C6FC3B27D73E3300B3057F /* Extensions */,
+				36C6FC3327D72B2300B3057F /* Utilities */,
 				369243F727D26788004F0FE4 /* Resources */,
 				C7431F1325F51E1E0094C4CF /* Info.plist */,
 				3692433927CE095C004F0FE4 /* GoogleService-Info.plist */,
@@ -562,6 +554,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XD7KFVM4LP;
@@ -587,6 +580,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XD7KFVM4LP;
@@ -730,16 +724,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XD7KFVM4LP;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ProjectManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.applecider.ProjectManager;
+				PRODUCT_BUNDLE_IDENTIFIER = net.applecider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -750,16 +745,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XD7KFVM4LP;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ProjectManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.applecider.ProjectManager;
+				PRODUCT_BUNDLE_IDENTIFIER = net.applecider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

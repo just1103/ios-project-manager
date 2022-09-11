@@ -15,7 +15,7 @@ protocol TaskRepositoryProtocol {
 
 final class TaskRepository: TaskRepositoryProtocol {
     let entireTasks: BehaviorRelay<[Task]>
-    
+ 
     lazy var todoTasks: Observable<[Task]> = entireTasks.map { tasks in
         tasks.filter { $0.processStatus == .todo }
     }
@@ -28,15 +28,16 @@ final class TaskRepository: TaskRepositoryProtocol {
     
     init(tasks: [Task] = []) {
 //        self.entireTasks = BehaviorRelay<[Task]>(value: tasks)
+        // TODO: realm에서 fetch하는 기능 추가
         
         // Dummy Data
         self.entireTasks = BehaviorRelay<[Task]>(value: [
-                                Task(title: "TODO-1", body: "Rx를 곁들인", dueDate: Date()),
-                                Task(title: "TODO-2", body: "RxSwift", dueDate: Date(timeIntervalSinceReferenceDate: 0)),
-                                Task(title: "TODO-3", body: "마감기한이 빠른 순으로 정렬", dueDate: Date(timeIntervalSinceReferenceDate: 157680000)),
-                                Task(title: "DOING-1", body: "RxCocoa", dueDate: Date(), processStatus: .doing),
-                                Task(title: "DONE-1", body: "MVVM", dueDate: Date(), processStatus: .done)
-                            ])
+            Task(title: "TODO-1", body: "Rx를 곁들인", dueDate: Date()),
+            Task(title: "TODO-2", body: "RxSwift", dueDate: Date(timeIntervalSinceReferenceDate: 0)),
+            Task(title: "TODO-3", body: "마감기한이 빠른 순으로 정렬", dueDate: Date(timeIntervalSinceReferenceDate: 157680000)),
+            Task(title: "DOING-1", body: "RxCocoa", dueDate: Date(), processStatus: .doing),
+            Task(title: "DONE-1", body: "MVVM", dueDate: Date(), processStatus: .done)
+        ])
     }
     
     func create(task: Task) {

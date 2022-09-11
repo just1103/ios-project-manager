@@ -91,7 +91,7 @@ final class TaskListViewController: UIViewController {
     private func setupTableViewsDidSelectCellBinding() {
         todoTableView.rx.modelSelected(Task.self)
             .bind(onNext: { [weak self] in
-                self?.taskListViewModel?.actions?.showTaskDetailToEditTask($0) })
+                self?.taskListViewModel?.actions?.showTaskDetailToEditTask($0) }) // FIXME: ViewModel에서 action을 호출하도록 수정
             .disposed(by: disposeBag)
         
         doingTableView.rx.modelSelected(Task.self)
