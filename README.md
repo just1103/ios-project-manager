@@ -5,8 +5,16 @@
 - RxCocoa 및 MVVM을 적용했습니다.
 - 프로젝트 진행 상태를 TODO / DOING / DONE으로 구분할 수 있고, 기한이 초과된 작업은 빨간색으로 표시합니다.
 
+|Task 추가 및 Long-press하여 Status 변경|Task 삭제|
+|-|-|
+|<img width="500" src="https://user-images.githubusercontent.com/70856586/189539544-790014c8-48bf-49ad-9414-fd70409f45e6.gif">|<img width="500" src="https://user-images.githubusercontent.com/70856586/189539547-6ab17d1f-96d9-4e1d-aa73-a6cf2d2d5ebe.gif">|
+
+|Task 수정|마감기한에 따라 재정렬/색상 조정|
+|-|-|
+|<img width="500" src="https://user-images.githubusercontent.com/70856586/189539549-c7e56d8d-c89f-4874-b5c2-fb2f13525d09.gif">|<img width="500" src="https://user-images.githubusercontent.com/70856586/189539552-c692382e-0d54-4128-a657-db8e58ce1329.gif">|
+
 ### 참여자
-- 리뷰어 : hyunable @hyunable
+- 리뷰어 : 흰 @daheenallwhite
 - 리뷰이 : applecider @just1103
 
 ### 프로젝트 기간 
@@ -18,6 +26,8 @@
     + [기술스택 고려사항](#1-2-기술스택-고려사항)
     + [피드백 반영](#1-3-피드백-반영)
     + [키워드](#1-4-키워드)
+- [STEP2. 프로젝트 할일 리스트 구현](##STEP2.-프로젝트-할일-리스트-구현)
+*작성중
 
 # STEP1. 프로젝트 적용기술 선정
 ## 1-1 구현 내용
